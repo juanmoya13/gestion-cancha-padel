@@ -26,6 +26,26 @@ export interface Database {
         Args: { p_date: string | null; p_notes: string | null; p_items: unknown };
         Returns: Purchase;
       };
+      create_player: {
+        Args: { p_first_name: string; p_last_name: string; p_gender: string | null; p_skill_level: number | null; p_phones: unknown };
+        Returns: Player;
+      };
+      update_player: {
+        Args: { p_player_id: string; p_first_name: string; p_last_name: string; p_gender: string | null; p_skill_level: number | null; p_phones: unknown };
+        Returns: Player;
+      };
+      delete_player: {
+        Args: { p_player_id: string };
+        Returns: undefined;
+      };
+      record_account_payment: {
+        Args: { p_player_id: string; p_amount: number; p_notes?: string | null };
+        Returns: AccountMovement;
+      };
+      adjust_account_balance: {
+        Args: { p_player_id: string; p_amount_change: number; p_reason?: string | null };
+        Returns: AccountMovement;
+      };
     };
     Enums: {
       payment_method_enum: PaymentMethod;
