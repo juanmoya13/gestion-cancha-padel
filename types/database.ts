@@ -17,7 +17,12 @@ export interface Database {
       account_movements: { Row: AccountMovement; Insert: AccountMovementInsert; Update: Partial<AccountMovementInsert> };
     };
     Views: Record<string, never>;
-    Functions: Record<string, never>;
+    Functions: {
+      adjust_product_stock: {
+        Args: { p_product_id: string; p_quantity_change: number; p_reason?: string | null };
+        Returns: { product_id: string; stock_after: number }[];
+      };
+    };
     Enums: {
       payment_method_enum: PaymentMethod;
       sale_status_enum: SaleStatus;
