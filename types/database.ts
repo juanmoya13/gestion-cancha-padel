@@ -22,6 +22,10 @@ export interface Database {
         Args: { p_product_id: string; p_quantity_change: number; p_reason?: string | null };
         Returns: { product_id: string; stock_after: number }[];
       };
+      record_purchase: {
+        Args: { p_date: string | null; p_notes: string | null; p_items: unknown };
+        Returns: Purchase;
+      };
     };
     Enums: {
       payment_method_enum: PaymentMethod;

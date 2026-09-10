@@ -1,0 +1,10 @@
+import { formatCurrency } from "@/lib/utils";
+import type { PurchaseWithItems } from "../types";
+
+function formatDate(value: string) {
+  return new Intl.DateTimeFormat("es-AR", { dateStyle: "medium", timeStyle: "short" }).format(new Date(value));
+}
+
+export function PurchaseTable({ purchases }: { purchases: PurchaseWithItems[] }) {
+  return <div className="overflow-x-auto"><table className="w-full min-w-[760px] text-left text-sm"><thead className="border-b border-slate-200 bg-slate-50 text-xs uppercase tracking-wide text-slate-500"><tr><th className="px-5 py-3">Fecha</th><th className="px-5 py-3">Productos</th><th className="px-5 py-3">Notas</th><th className="px-5 py-3 text-right">Total</th><th className="px-5 py-3">Estado</th></tr></thead><tbody className="divide-y divide-slate-100">{purchases.length === 0 ? <tr><td colSpan={5} className="px-5 py-10 text-center text-slate-500">Todavía no hay compras registradas.</td></tr> : purchases.map((purchase) => <tr key={purchase.id} className="align-top"><td className="whitespace-nowrap px-5 py-4 text-slate-500">{formatDate(purchase.date)}</td><td className="px-5 py-4"><ul className="space-y-1">{purchase.items.map((item) => <li key={item.id}><span className="font-medium text-slate-900">{item.product?.name ?? "Producto histórico"}</span><span className="ml-2 text-slate-500">{item.quantity} x {formatCurrency(item.unit_purchase_price)}</span></li>)}</ul></td><td className="max-w-48 px-5 py-4 text-slate-500">{purchase.notes ?? "-"}</td><td className="px-5 py-4 text-right font-mono font-semibold tabular-nums text-slate-900">{formatCurrency(purchase.total_amount)}</td><td className="px-5 py-4"><span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">Pagada</span></td></tr>)}</tbody></table></div>;
+}
