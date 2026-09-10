@@ -46,6 +46,14 @@ export interface Database {
         Args: { p_player_id: string; p_amount_change: number; p_reason?: string | null };
         Returns: AccountMovement;
       };
+      record_sale: {
+        Args: { p_date: string | null; p_responsible_player_id: string | null; p_payment_method: string; p_notes: string | null; p_items: unknown };
+        Returns: Sale;
+      };
+      cancel_sale: {
+        Args: { p_sale_id: string; p_reason?: string | null };
+        Returns: undefined;
+      };
     };
     Enums: {
       payment_method_enum: PaymentMethod;
