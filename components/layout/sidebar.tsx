@@ -12,7 +12,6 @@ const navigation = [
   { href: "/productos", label: "Productos", icon: Boxes },
   { href: "/stock", label: "Stock", icon: ClipboardList },
   { href: "/jugadores", label: "Jugadores", icon: Users },
-  { href: "/cuenta-corriente", label: "Cuenta corriente", icon: CircleDollarSign },
   { href: "/compras", label: "Compras", icon: ClipboardList },
   { href: "/reportes", label: "Reportes", icon: BarChart3 },
   { href: "/historial", label: "Historial", icon: ClipboardList },
