@@ -7,7 +7,7 @@ import { BarChart3, Boxes, CircleDollarSign, ClipboardList, LayoutDashboard, Men
 import { cn } from "@/lib/utils";
 
 const navigation = [
-  { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/dashboard", label: "Inicio", icon: LayoutDashboard },
   { href: "/ventas", label: "Ventas", icon: ShoppingCart },
   { href: "/productos", label: "Productos", icon: Boxes },
   { href: "/stock", label: "Stock", icon: ClipboardList },
